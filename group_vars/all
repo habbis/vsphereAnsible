@@ -1,0 +1,20 @@
+# these are global variables based on inventory group name
+vcenter_hostname: yourip
+vcenter_username: username
+vcenter_password: password
+esxi_hostname:  esxiIp
+datacenter_name: yourdatacenter
+datastore: yourdatastore
+vmname01: vmName
+vmname02: vmname02
+#guestOS01: centos7Guest
+#guestOS02: centos7Guest
+network: test
+# networks: test: 10.3.1.0 prepod: 10.2.1.0 prod: 10.2.1.0 LAN: 172.16.1.0
+vmip: vmip
+vmip02: vmip02
+templateName01: templateName
+folder: folderName
+# the are just som test stuff it can be used
+nameserver: yournameserver
+domain: yourdoamin

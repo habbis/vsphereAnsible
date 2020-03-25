@@ -1,0 +1,38 @@
+- name: Create a virtual machine on given ESXi hostname
+  vmware_guest:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    validate_certs: no
+    datacenter: "{{ datacenter_name }}"
+    folder:  "{{ folder }}"
+    template: "{{ templateName01 }}"
+    name: "{{ vmname01 }}"
+    state: poweredon
+    #guest_id: "{{ guestOS01 }}"
+    disk:
+    - size_gb: 25
+      #type: thin
+      type: tick
+      datastore: "{{ datastore }}"
+    hardware:
+      memory_mb: 4100
+      num_cpus: 2
+      hotadd_cpu: True
+      hotadd_memory: True
+      scsi: paravirtual
+    networks:
+    - name: "{{ network }}"
+      ip: "{{ vmip }}"
+      gateway: "{{ nameserver }}"
+      netmask: 255.255.255.0
+      nameservers: "{{ nameserver }}"
+      customization:
+        hostname: "{{ vmname01 }}"
+        domain: "{{ domain }}"
+        dns_servers:
+         #- "{{ nameserver }}"
+         # - 1.1.1.1
+    wait_for_ip_address: yes
+  delegate_to: localhost
+  register: deploy_vm

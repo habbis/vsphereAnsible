@@ -1,0 +1,23 @@
+---
+- name: setup venter vm server
+  gather_facts: no
+  hosts: localhost
+  #remote_user: root
+  #remote_user: user
+  #become: yes
+  #become_method: sudo
+
+  roles:
+    - vm
+    #- vm02
+
+#- name: config after creating the vm
+  #gather_facts: no
+  #hosts: all
+  #remote_user: root
+  #remote_user: user
+  #become: yes
+  #become_method: sudo
+
+  #roles:
+    #- hostname
