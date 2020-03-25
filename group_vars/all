@@ -2,6 +2,7 @@
 vcenter_hostname: yourip
 vcenter_username: username
 vcenter_password: password
+# This is optional
 esxi_hostname:  esxiIp
 datacenter_name: yourdatacenter
 datastore: yourdatastore
