@@ -1,6 +1,8 @@
 # vsphereAnsible
 Ansible playbook for provisioning vm via [vmware vsphere module](https://docs.ansible.com/ansible/latest/modules/vmware_guest_module.html) 
 
+First you setup a template on your vcenter.
+
 To setup a vm 
 ```
 ansible-playbook site.yml
