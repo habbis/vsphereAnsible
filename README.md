@@ -13,5 +13,6 @@ I have created standalone playbook for deprovisioning
 ansible-playbook removingVM.yml     
 ```
 
-All the varibales are in [group_vars](/group_vars/all)
+All the varibales are in [group_vars](/group_vars/all) folder. 
+To encrypt passord and username you can use [ansible vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html) .
 
