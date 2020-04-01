@@ -11,7 +11,7 @@ vmname02: vmname02
 #guestOS01: centos7Guest
 #guestOS02: centos7Guest
 network: test
-# networks: test: 10.3.1.0 prepod: 10.2.1.0 prod: 10.2.1.0 LAN: 172.16.1.0
+# network
 vmip: vmip
 vmip02: vmip02
 templateName01: templateName
