@@ -13,5 +13,5 @@ I have created standalone playbook for deprovisioning
 ansible-playbook removingVM.yml     
 ```
 
-
+All the varibales are in [group_vars](/group_vars/all)
 
