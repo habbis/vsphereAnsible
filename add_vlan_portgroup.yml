@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  gather_facts: no
+  #remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+
+  tasks:
+  - name: poweroffvm
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      switch: "{{ vswitch_name }}"
+      portgroup: home
+      vlan_id: 20
+      validate_certs: no
+    delegate_to: localhost
+
