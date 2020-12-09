@@ -7,11 +7,16 @@
   #become_method: sudo
 
   tasks:
+<<<<<<< HEAD
   - name: mount nfs datastore
+=======
+  - name: poweroffvm
+>>>>>>> 34630f003c0488707bda07657561cff502b90ac3
     vmware_host_datastore:
       hostname: "{{ esxi_hostname }}"
       username: "{{ esxi_username }}"
       password: "{{ esxi_password }}"
+<<<<<<< HEAD
       #hosts: "{{ esxi }}"
       esxi_hostname: "{{ esxi }}"
       validate_certs: no
@@ -51,6 +56,14 @@
       datastore_type: nfs41
       nfs_server: yourhost
       nfs_path: /your/mount/vmstorage
+=======
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      datastore_name: "{{ name }}"
+      datastore_type: "{{ nfs_type }}"
+      nfs_server: "{{ nfs_server }}"
+      nfs_path: "{{ nfs_path }}"
+>>>>>>> 34630f003c0488707bda07657561cff502b90ac3
       nfs_ro: no
       state: present
     delegate_to: localhost

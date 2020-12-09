@@ -7,6 +7,7 @@
   #become_method: sudo
 
   tasks:
+<<<<<<< HEAD
 
   - name: add port group vlan02
     vmware_portgroup:
@@ -57,11 +58,15 @@
     delegate_to: localhost
 
   - name: add port group vlan01
+=======
+  - name: poweroffvm
+>>>>>>> 34630f003c0488707bda07657561cff502b90ac3
     vmware_portgroup:
       hostname: "{{ esxi_hostname }}"
       username: "{{ esxi_username }}"
       password: "{{ esxi_password }}"
       hosts: "{{ esxi }}"
+<<<<<<< HEAD
       validate_certs: no
       switch: vSwitch0
       portgroup: fyksen
@@ -116,3 +121,11 @@
       portgroup: moncore
       vlan: 56
     delegate_to: localhost
+=======
+      switch: "{{ vswitch_name }}"
+      portgroup: home
+      vlan_id: 20
+      validate_certs: no
+    delegate_to: localhost
+
+>>>>>>> 34630f003c0488707bda07657561cff502b90ac3
