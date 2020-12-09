@@ -1,0 +1,77 @@
+---
+- hosts: localhost
+  gather_facts: no
+  #remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+
+  tasks:
+  - name: startVM
+    vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: no
+      datacenter: "{{ datacenter_name }}"
+      folder:  "{{ folder }}"
+      name: "{{ vmname01 }}"
+      state: poweredon
+    delegate_to: localhost
+    ignore_errors: yes
+
+  - name: startVM
+    vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: no
+      datacenter: "{{ datacenter_name }}"
+      folder:  "{{ folder }}"
+      name: "{{ vmname02 }}"
+      state: poweredon
+    delegate_to: localhost
+    ignore_errors: yes
+
+
+  - name: startVM
+    vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: no
+      datacenter: "{{ datacenter_name }}"
+      folder:  "{{ folder }}"
+      name: "{{ vmname03 }}"
+      state: poweredon
+    delegate_to: localhost
+    ignore_errors: yes
+
+
+
+  - name: startVM
+    vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: no
+      datacenter: "{{ datacenter_name }}"
+      folder:  "{{ folder }}"
+      name: "{{ vmname04 }}"
+      state: poweredon
+    delegate_to: localhost
+    ignore_errors: yes
+
+
+  - name: startVM
+    vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: no
+      datacenter: "{{ datacenter_name }}"
+      folder:  "{{ folder }}"
+      name: "{{ vmname05 }}"
+      state: poweredon
+    delegate_to: localhost
+    ignore_errors: yes

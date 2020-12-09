@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  gather_facts: no
+  #remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+
+  tasks:
+  - name: mount nfs datastore
+    vmware_host_datastore:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      #hosts: "{{ esxi }}"
+      esxi_hostname: "{{ esxi }}"
+      validate_certs: no
+      datastore_name: vmstorage01_ironfist_1G
+      datastore_type: vmfs
+      vmfs_device_name: 'naa.6589cfc0000008f445b7de2ab70dad6d'
+      vmfs_verstion: 6
+      state: present
+    delegate_to: localhost

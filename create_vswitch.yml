@@ -1,0 +1,57 @@
+---
+- hosts: localhost
+  gather_facts: no
+  #remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+
+  tasks:
+  - name: create vswitch
+    #community.vmware.vmware_vswitch:
+    vmware_vswitch:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      #hosts: "{{ esxi }}"
+      esxi_hostname: "{{ esxi }}"
+      validate_certs: no
+      switch_name: "{{ vswitch }}"
+      #nic_name: "{{ vmnic }}"
+      # list
+      nics:
+      - "{{ vmnic }}"
+      mtu: "{{ mtu }}"
+    delegate_to: localhost
+
+  - name: add portgroup
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: "{{ vswitch }}"
+      portgroup: "{{ portgroup }}"
+      vlan: "{{ vlanid }}"
+    delegate_to: localhost
+
+  - name: create vmkernel
+    #community.vmware.vmware_vmkernel:
+    vmware_vmkernel:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      #hosts: "{{ esxi }}"
+      esxi_hostname: "{{ esxi }}"
+      validate_certs: no
+      vswitch_name: "{{ vswitch }}"
+      portgroup_name: "{{ portgroup }}"
+      mtu: "{{ mtu }}"
+      state: present
+      device: "{[ vmkernel_port }}"
+      network:
+        type: 'dhcp'
+      enable_mgmt: True
+    delegate_to: localhost
+

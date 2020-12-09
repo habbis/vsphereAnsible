@@ -1,0 +1,57 @@
+---
+- hosts: localhost
+  gather_facts: no
+  #remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+
+  tasks:
+  - name: mount nfs datastore
+    vmware_host_datastore:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      #hosts: "{{ esxi }}"
+      esxi_hostname: "{{ esxi }}"
+      validate_certs: no
+      datastore_name: otherhost
+      datastore_type: nfs41
+      nfs_server: yourhost
+      nfs_path: /your/mount/otherstor
+      nfs_ro: no
+      state: present
+    delegate_to: localhost
+
+  - name: mount nfs datastore iso
+    vmware_host_datastore:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      #hosts: "{{ esxi }}"
+      esxi_hostname: "{{ esxi }}"
+      validate_certs: no
+      datastore_name: iso
+      datastore_type: nfs41
+      nfs_server: yourhost
+      nfs_path: /your/mount/iso
+      nfs_ro: no
+      state: present
+    delegate_to: localhost
+
+  - name: mount nfs datastore iso
+    vmware_host_datastore:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      #hosts: "{{ esxi }}"
+      esxi_hostname: "{{ esxi }}"
+      validate_certs: no
+      datastore_name: vmstorage
+      datastore_type: nfs41
+      nfs_server: yourhost
+      nfs_path: /your/mount/vmstorage
+      nfs_ro: no
+      state: present
+    delegate_to: localhost
+

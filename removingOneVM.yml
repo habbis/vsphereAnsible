@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  gather_facts: no
+  #remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+
+  tasks:
+  - name: poweroffvm
+    vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: no
+      datacenter: "{{ datacenter_name }}"
+      folder:  "{{ folder }}"
+      name: "{{ vmname01 }}"
+      state: poweredoff
+    delegate_to: localhost
+    ignore_errors: yes
+
+  - name: delete vm
+    vmware_guest:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: no
+      datacenter: "{{ datacenter_name }}"
+      folder:  "{{ folder }}"
+      name: "{{ vmname01 }}"
+      state: absent
+    delegate_to: localhost
+    ignore_errors: yes

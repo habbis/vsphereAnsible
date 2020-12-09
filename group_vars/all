@@ -1,11 +1,23 @@
 # these are global variables based on inventory group name
-vcenter_hostname: yourip
-vcenter_username: username
-vcenter_password: password
+vcenter_hostname: yourhost
+vcenter_username:  yourhost
+vcenter_password: yourpass
+esxi_username: root
+esxi_password: yourpass
 # This is optional
-esxi_hostname:  esxiIp
-datacenter_name: yourdatacenter
-datastore: yourdatastore
+esxi_hostname: yourhost
+esxi: yourhost
+
+# network config host 
+vmnic: vmnic4
+vswitch: vFastswitch
+portgroup: fastnet
+mtu: 9000
+vmkernel_port: vmnic1
+vlanid: 0
+
+datacenter_name: habbfarm
+datastore: vmstor01
 vmname01: vmName
 vmname02: vmname02
 #guestOS01: centos7Guest

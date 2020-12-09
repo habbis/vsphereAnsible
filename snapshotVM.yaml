@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  gather_facts: no
+  #remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+
+  tasks:
+  - name: snapshot of vm
+    vmware_guest_snapshot:
+      hostname: "{{ vcenter_hostname }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: no
+      datacenter: "{{ datacenter_name }}"
+      folder:  "{{ folder }}"
+      name: "{{ vmname }}"
+      state: present
+      snapshot_name: beforeInstall
+      description: beforeInstall
+      #state: absent
+      #state: revert
+      #state: remove_all
+      #quiesce: yes
+      memory_dump: yes
+      #remove_children: yes
+    delegate_to: localhost

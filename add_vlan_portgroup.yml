@@ -1,0 +1,118 @@
+---
+- hosts: localhost
+  gather_facts: no
+  #remote_user: root
+  #remote_user: root
+  #become: yes
+  #become_method: sudo
+
+  tasks:
+
+  - name: add port group vlan02
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: preprod
+      vlan: 23
+    delegate_to: localhost
+
+  - name: add port group vlan01
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: prod
+      vlan: 24
+    delegate_to: localhost
+
+  - name: add port group vlan02
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: yourvlan
+      vlan: 26
+    delegate_to: localhost
+
+  - name: add port group vlan02
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: bastion_mgmt
+      vlan: 28
+    delegate_to: localhost
+
+  - name: add port group vlan01
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: fyksen
+      vlan: 29
+    delegate_to: localhost
+
+  - name: add port group vlan02
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: backup
+      vlan: 30
+    delegate_to: localhost
+
+
+  - name: add port group vlan02
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: mgmt
+      vlan: 31
+    delegate_to: localhost
+
+  - name: add port group vlan02
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: virt
+      vlan: 32
+    delegate_to: localhost
+
+  - name: add port group moncore
+    vmware_portgroup:
+      hostname: "{{ esxi_hostname }}"
+      username: "{{ esxi_username }}"
+      password: "{{ esxi_password }}"
+      hosts: "{{ esxi }}"
+      validate_certs: no
+      switch: vSwitch0
+      portgroup: moncore
+      vlan: 56
+    delegate_to: localhost
